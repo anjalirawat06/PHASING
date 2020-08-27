@@ -2,8 +2,8 @@ function [deltaV, mass_ejected] = thruster(mass_thruster, mass_other, Isp, Impul
     g = 9.8;   % m/s^2
     M = mass_thruster*6;     % six thrusters for sic DOF  
     Ve = g*Isp;              % exhaust velocity
-    mass_ejected = Impulse/Ve;  
-    imass = mass_other + M;     
-    fmass = imass - mass_ejected;  
+    mass_ejected = Impulse/Ve;  % kg
+    imass = mass_other + M;      
+    fmass = imass - mass_ejected*1000;  
     deltaV = g*Isp*log(imass/fmass);   % m/s
 end
